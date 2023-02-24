@@ -1,5 +1,3 @@
-<script setup></script>
-
 <script>
 export default {
   data() {
@@ -10,7 +8,6 @@ export default {
       email: "",
       password: "",
       feedbackMessage: "",
-      isprojet: false,
     };
   },
   props: {
@@ -25,14 +22,12 @@ export default {
         email: this.email,
         password: this.password,
       };
-
       const response = await fetch("http://127.0.0.1:8000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-
         body: JSON.stringify(body),
       });
 

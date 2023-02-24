@@ -95,7 +95,7 @@
   </div>
 
   <div class="text-center text-gray-700 p-4 bg-orange-100" >
-    © 2022 Copyright:
+    © 2023 Copyright
     <a class="text-gray-800" href="">ChatMatch by Marlee</a>
   </div>
 </footer>

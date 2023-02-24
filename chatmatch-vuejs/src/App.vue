@@ -11,7 +11,7 @@ import Footer from './components/Footer.vue';
     <NavBar/>
   </header>
 
-  <body class="bg-orange-100 pb-28">
+  <body style="background-color:#feeddd;">
     <RouterView />
     <Footer/>
   </body>
@@ -63,14 +63,7 @@ export default {
       this.isLoggedIn = false;
       this.user = null;
     },
-      
-
   },
-
-  mounted() {
-    this.checkToken();
-  },
-
   provide() {
     return {
       isLoggedIn: () => this.isLoggedIn,
@@ -78,6 +71,9 @@ export default {
       loginUser: this.login,
       logoutUser:  this.logout,
     };
+  },
+  mounted() {
+    this.checkToken();
   },
 };
 </script>
