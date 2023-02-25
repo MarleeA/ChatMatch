@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue';
 import loginUser from "./views/LoginView.vue";
 import Footer from './components/Footer.vue';
+import ToolBar from './components/ToolBar.vue';
 </script>
 
 <template >
@@ -11,8 +12,9 @@ import Footer from './components/Footer.vue';
     <NavBar/>
   </header>
 
-  <body style="background-color:#feeddd;">
+  <body style="background-color:#feeddd;" class="pb-20">
     <RouterView />
+    <ToolBar/>
     <Footer/>
   </body>
 

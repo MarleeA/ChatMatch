@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::put('/profil', [AuthController::class, 'update'])->name('profil.update')-
 
 Route::post('/post',[PostController::class, 'store'])->name('post.store')->middleware("auth:sanctum");
 Route::get('/post',[PostController::class, 'index'])->name('post.index')->middleware("auth:sanctum");
+Route::post('post/comment',[CommentController::class, 'store'])->name('comment.store')->middleware("auth:sanctum");
+Route::get('comment',[CommentController::class, 'index'])->name('comment.index')->middleware("auth:sanctum");
 
 
 

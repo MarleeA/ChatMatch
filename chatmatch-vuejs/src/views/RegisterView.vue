@@ -57,7 +57,7 @@ export default {
               v-model="lastname"
               type="text"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
-              id="exampleInput123"
+
               aria-describedby="emailHelp123"
               name="nom"
               placeholder="Nom"
@@ -68,7 +68,7 @@ export default {
               v-model="firstname"
               type="text"
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
-              id="exampleInput124"
+
               aria-describedby="emailHelp124"
               name="prenom"
               placeholder="Prénom"
@@ -81,7 +81,6 @@ export default {
             v-model="pseudo"
             name="pseudo"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
-            id="exampleInput125"
             placeholder="Pseudo"
           />
         </div>
@@ -91,7 +90,6 @@ export default {
             v-model="email"
             name="email"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
-            id="exampleInput125"
             placeholder="Adresse mail"
           />
         </div>
@@ -101,7 +99,6 @@ export default {
             name="password"
             type="password"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
-            id="exampleInput126"
             placeholder="Mot de passe"
           />
         </div>

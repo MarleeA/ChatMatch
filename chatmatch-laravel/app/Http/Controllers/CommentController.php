@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Comment;
+use App\Models\Post;
 
 class CommentController extends Controller
 {
@@ -13,7 +15,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+         $comments = Comment::where('post_id',Post::Post()->id)->get();
+            return response()->json(
+                ['comments' => $comments],
+                200
+            );
     }
 
     /**
@@ -34,7 +40,20 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+            $request->validate([
+                'content' => 'required|string',
+            ]);
+    
+            $comment = Comment::create([
+                'content' => $request->content,
+                'user_id' => $request = Auth::user()->id,
+                'post_id' => $request = Post::post()->id,
+    
+            ]);
+            $comment->save();
+            return response()->json(['message' => 'Votre commentaire a été créé', 'comment' => $comment], 201);
+        
     }
 
     /**
