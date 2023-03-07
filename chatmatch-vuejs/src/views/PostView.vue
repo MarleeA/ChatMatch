@@ -57,29 +57,27 @@ export default {
       const data = await response.json();
       this.posts = data.posts;
     },
-  },
-    async createComment(post) {
+    async createComment(post_id) {
     
       const body = {
-        content: post.commentContent,
+        post_id:post_id,
+        content: this.content,
       };
       let tokens = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/post/${post.id}/comment`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/comment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
           Authorization: `Bearer ${tokens}`,
         },
-        body: JSON.stringify({
-          content: post.commentContent,
-        }),
+        body: JSON.stringify
       })
       const data = await response.json();
-      post.comments.push(data);
-      post.commentContent = '';
+      
 
     },
+  },
 
  
   mounted() {
@@ -122,11 +120,13 @@ export default {
       >
         <p class="text-sky-900 text-l font-semibold">{{ }}</p>
         <p class="text-sky-900 text-l font-semibold">{{ post.content }}</p>
-        <p class="text-sky-900 text-l font-semibold">{{ formatDate(post.created_at) }}</p>
+        <div class="flex justify-end">
+          <p class="text-sky-900 text-xs mt-3 font-semibold">{{ formatDate(post.created_at) }}</p>
+        </div>
 
-      <form @submit.prevent="createComment">
+      <form @submit.prevent="createComment(post_id)">
       <div>
-        <textarea id="comment-content" class="form-control block mt-10 h-10 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"  v-model="post.commentContent"></textarea>
+        <textarea id="comment-content" placeholder="Laissez un commentaire" class="form-control block mt-10 h-10 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"  v-model="post.commentContent"></textarea>
         <button type="submit" class="w-full px-6 py-2.5 bg-orange-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-400 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-600 active:shadow-lg transition duration-150 ease-in-out">Commenter</button>
       </div>
     </form>
